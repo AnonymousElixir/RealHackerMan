@@ -1,5 +1,3 @@
-from hackermaninterp import RealHackerManInterpreter
-
     code = """
     # Define a function
     FUNC: my_cool_function(param1, param2)
@@ -10,7 +8,7 @@ from hackermaninterp import RealHackerManInterpreter
     # Variable assignments
     secret_message = "Hacking is fun!"
     numbers = [1, 2, 3, 4, 5]
-    data = {"key": "value"}
+    data = {"key": "value", "another_key": [10, 20, 30]}
 
     # Print statements
     PRINT: secret_message
@@ -24,6 +22,10 @@ from hackermaninterp import RealHackerManInterpreter
 
     # Looping
     LOOP: 5 times
+
+    # Shouting and silence
+    SHOUT: HACKING IS AWESOME!
+    SILENCE: This is a secret message.
 
     # Random hacker command
     RANDOM HACKER COMMAND
