@@ -1,4 +1,5 @@
 from hackermaninterp import RealHackerManInterpreter
+
 code = """
 # Define a function
 FUNC: my_cool_function(param1, param2)
