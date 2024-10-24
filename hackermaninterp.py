@@ -18,11 +18,11 @@ class RealHackerManInterpreter:
 
     def process_line(self, line):
         line = line.strip()
-        
+
         # Ignore comments
         if line.startswith("#"):
             return
-        
+
         if line.startswith("HACKER:"):
             self.hacker_command(line[7:])
         elif "=" in line:
@@ -37,6 +37,10 @@ class RealHackerManInterpreter:
             self.define_function(line[5:])
         elif line.startswith("CALL:"):
             self.call_function(line[5:])
+        elif line.startswith("SHOUT:"):
+            self.shout(line[6:])
+        elif line.startswith("SILENCE:"):
+            self.silence(line[8:])
         elif line == "CODE RED":
             self.code_red()
         elif line == "RANDOM HACKER COMMAND":
@@ -56,13 +60,13 @@ class RealHackerManInterpreter:
         var_name, value = line.split("=")
         var_name = var_name.strip()
         value = value.strip()
-        
+
         # Check for list or dictionary assignments
         if value.startswith("[") and value.endswith("]"):
             value = eval(value)  # Evaluate the list
         elif value.startswith("{") and value.endswith("}"):
             value = eval(value)  # Evaluate the dictionary
-        
+
         self.variables[var_name] = value
         print(f"🎉 Yay! Variable '{var_name}' now holds the magic value '{value}'! 🪄")
 
@@ -124,7 +128,7 @@ class RealHackerManInterpreter:
         func_name, args = func_call.split("(")
         args = args.rstrip(")").strip().split(",") if ")" in args else []
         func_name = func_name.strip()
-        
+
         if func_name in self.variables:
             params, body = self.variables[func_name]
             if len(params) == len(args):
@@ -136,6 +140,12 @@ class RealHackerManInterpreter:
                 print(f"🚨 Error: Function '{func_name}' expects {len(params)} arguments but got {len(args)}.")
         else:
             print(f"🚨 Error: Function '{func_name}' is not defined. Did you forget to define it? 🤷")
+
+    def shout(self, message):
+        print(f"📣 SHOUTING: {message.upper()}!!! 🔊")
+
+    def silence(self, message):
+        print(f"🤫 Silencing: '{message}'. Shhh... 🤭")
 
     def code_red(self):
         print("🚨 CODE RED! Activating self-destruct sequence... Just kidding! Chill out! 😜")
