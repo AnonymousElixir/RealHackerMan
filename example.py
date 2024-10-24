@@ -1,16 +1,39 @@
 from hackermaninterp import RealHackerManInterpreter
 
-code = """
-HACKER: hack the planet 🌍
-secret_message = "Hacking is fun!"
-PRINT: secret_message
-IF: secret_message == "Hacking is fun!"
-LOOP: 5 times
-HACKER: uninstall gravity 🪂
-RANDOM HACKER COMMAND
-SLEEP: 3
-CODE RED
-"""
+    code = """
+    # Define a function
+    FUNC: my_cool_function(param1, param2)
 
-interpreter = RealHackerManInterpreter()
-interpreter.execute(code)
+    # Use the function
+    CALL: my_cool_function("Hello", "World")
+
+    # Variable assignments
+    secret_message = "Hacking is fun!"
+    numbers = [1, 2, 3, 4, 5]
+    data = {"key": "value"}
+
+    # Print statements
+    PRINT: secret_message
+    PRINT: numbers
+    PRINT: data
+
+    # Conditional statements
+    IF: secret_message == "Hacking is fun!"
+    IF: secret_message == "Hacking is fun!" OR numbers[0] == 1
+    IF: secret_message == "Not fun" AND numbers[1] == 2
+
+    # Looping
+    LOOP: 5 times
+
+    # Random hacker command
+    RANDOM HACKER COMMAND
+
+    # Sleep
+    SLEEP: 3
+
+    # Code Red
+    CODE RED
+    """
+
+    interpreter = RealHackerManInterpreter()
+    interpreter.execute(code)
